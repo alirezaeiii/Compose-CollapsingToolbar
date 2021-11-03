@@ -1,10 +1,12 @@
 package com.android.sample.common.base
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineDispatcher
 
 abstract class BaseListRepository<T>(
-    context: Context
-) : BaseRepository<List<T>>(context) {
+    context: Context,
+    coroutinesDispatcher: CoroutineDispatcher
+) : BaseRepository<List<T>>(context, coroutinesDispatcher) {
 
     override fun isNotEmpty(t: List<T>): Boolean = t.isNotEmpty()
 }

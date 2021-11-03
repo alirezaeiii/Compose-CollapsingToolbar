@@ -3,13 +3,14 @@ package com.android.sample.common.base
 import android.content.Context
 import com.android.sample.common.R
 import com.android.sample.common.util.ViewState
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository<T>(
-    context: Context
+    context: Context,
+    coroutinesDispatcher: CoroutineDispatcher
 ) {
     protected abstract suspend fun query(): T
 
@@ -39,5 +40,5 @@ abstract class BaseRepository<T>(
             }
 
         }
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(coroutinesDispatcher)
 }

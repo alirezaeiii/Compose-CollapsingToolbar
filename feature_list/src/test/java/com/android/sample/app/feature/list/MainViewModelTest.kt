@@ -7,6 +7,7 @@ import com.android.sample.common.util.ViewState
 import com.android.sample.core.database.DisneyDao
 import com.android.sample.core.network.DisneyService
 import com.android.sample.core.repository.DisneyRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
@@ -49,7 +50,7 @@ class MainViewModelTest {
             `when`(dao.getPosters()).thenReturn(emptyList())
         }
 
-        val repository = DisneyRepository(dao, api, context)
+        val repository = DisneyRepository(dao, api, context, Dispatchers.Main)
 
         testCoroutineRule.pauseDispatcher()
         val viewModel = MainViewModel(repository)
@@ -67,7 +68,7 @@ class MainViewModelTest {
             `when`(api.fetchDisneyPosterList()).thenThrow(RuntimeException(""))
             `when`(dao.getPosters()).thenReturn(emptyList())
         }
-        val repository = DisneyRepository(dao, api, context)
+        val repository = DisneyRepository(dao, api, context, Dispatchers.Main)
 
         testCoroutineRule.pauseDispatcher()
         val viewModel = MainViewModel(repository)
