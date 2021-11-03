@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_feature_list"
+    app:startDestination="@+id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.android.sample.app.feature.list.ui.MainFragment"
+        android:label="mainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.android.sample.app.feature.list.ui.DetailFragment"
+        android:label="detailFragment">
+        <argument
+            android:name="poster"
+            app:argType="com.android.sample.core.response.Poster" />
+    </fragment>
+
+</navigation>

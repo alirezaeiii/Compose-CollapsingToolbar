@@ -1,0 +1,5 @@
+rootProject.name = "SampleCompose"
+include ':app'
+include ':common'
+include ':core'
+include ':feature_list'
