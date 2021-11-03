@@ -12,5 +12,5 @@ import dagger.hilt.components.SingletonComponent
 abstract class ContextModule {
 
     @Binds
-    internal abstract fun bindContext(application: Application): Context
+    abstract fun bindContext(application: Application): Context
 }
