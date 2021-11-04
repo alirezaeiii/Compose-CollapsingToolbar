@@ -14,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -29,6 +30,8 @@ import com.android.sample.app.feature.list.ui.theme.ComposeTheme
 import com.android.sample.common.util.ViewState
 import com.android.sample.common.util.composeView
 import com.android.sample.core.response.Poster
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalCoilApi
@@ -68,11 +71,21 @@ class MainFragment : Fragment() {
                 ) {
                     when (viewState) {
                         is ViewState.Loading -> CircularProgressIndicator()
-                        is ViewState.Success ->
-                            VerticalListView(viewState.data, OnClickListener { poster ->
-                                val destination = MainFragmentDirections.actionMainFragmentToDetailFragment(poster)
-                                findNavController().navigate(destination)
-                            })
+                        is ViewState.Success -> {
+                            val isRefreshing by viewModel.isRefreshing.collectAsState()
+                            SwipeRefresh(
+                                state = rememberSwipeRefreshState(isRefreshing = isRefreshing),
+                                onRefresh = { viewModel.refresh() },
+                            ) {
+                                VerticalListView(viewState.data, OnClickListener { poster ->
+                                    val destination =
+                                        MainFragmentDirections.actionMainFragmentToDetailFragment(
+                                            poster
+                                        )
+                                    findNavController().navigate(destination)
+                                })
+                            }
+                        }
                         is ViewState.Error ->
                             ErrorView(message = viewState.message, viewModel::refresh)
                     }

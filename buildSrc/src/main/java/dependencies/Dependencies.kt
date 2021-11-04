@@ -27,4 +27,5 @@ object Dependencies {
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${BuildDependenciesVersions.COMPOSE}"
     const val COMPOSE_PREVIEW = "androidx.compose.ui:ui-tooling-preview:${BuildDependenciesVersions.COMPOSE}"
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:${BuildDependenciesVersions.ACTIVITY_COMPOSE}"
+    const val SWIPE_REFRESH = "com.google.accompanist:accompanist-swiperefresh:${BuildDependenciesVersions.ACCOMPANIST}"
 }

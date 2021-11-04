@@ -35,6 +35,7 @@ dependencies {
     implementation(Dependencies.COMPOSE_MATERIAL)
     implementation(Dependencies.COMPOSE_PREVIEW)
     implementation(Dependencies.ACTIVITY_COMPOSE)
+    implementation(Dependencies.SWIPE_REFRESH)
     kapt(AnnotationProcessorsDependencies.HILT)
 
     addTestsDependencies()

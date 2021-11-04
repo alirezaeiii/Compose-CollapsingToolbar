@@ -19,6 +19,7 @@ object BuildDependenciesVersions {
     const val COIL = "1.4.0"
     const val COMPOSE = "1.0.4"
     const val ACTIVITY_COMPOSE = "1.3.1"
+    const val ACCOMPANIST = "0.20.0"
 
     // Tests
     const val TEST = "1.3.0"

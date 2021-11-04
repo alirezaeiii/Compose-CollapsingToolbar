@@ -8,6 +8,7 @@ import com.android.sample.core.response.Poster
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,15 +22,21 @@ class MainViewModel @Inject constructor(
     val stateFlow: StateFlow<ViewState<List<Poster>>>
         get() = _stateFlow
 
+    private val _isRefreshing = MutableStateFlow(false)
+    val isRefreshing: StateFlow<Boolean>
+        get() = _isRefreshing.asStateFlow()
+
     init {
         refresh()
     }
 
     fun refresh() {
         viewModelScope.launch {
+            _isRefreshing.emit(true)
             repository.result.collect {
                 _stateFlow.tryEmit(it)
             }
+            _isRefreshing.emit(false)
         }
     }
 }
