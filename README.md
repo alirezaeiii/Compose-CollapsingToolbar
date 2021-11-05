@@ -1,5 +1,5 @@
 # Hilt-MultiModule-Cache
-Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Retrofit, Unit test and Kotlin Gradle DSL.
+Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL.
 
 ## Features
 * Modular Android App Architecture.
