@@ -1,4 +1,4 @@
-# Hilt-MultiModule-Cache
+# SampleCompose
 Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL.
 
 ## Features
