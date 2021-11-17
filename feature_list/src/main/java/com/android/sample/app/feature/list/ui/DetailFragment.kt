@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import coil.annotation.ExperimentalCoilApi
+import com.android.sample.app.feature.list.R
 import com.android.sample.app.feature.list.ui.component.DetailView
 import com.android.sample.app.feature.list.ui.theme.ComposeTheme
 import com.android.sample.common.util.composeView
@@ -20,10 +21,19 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = composeView {
         ComposeTheme {
+            val poster = DetailFragmentArgs.fromBundle(requireArguments()).poster
             DetailView(
-                DetailFragmentArgs.fromBundle(requireArguments()).poster,
+                poster,
                 findNavController()::navigateUp
-            )
+            ) {
+                val arg = DetailFragmentArgs(poster).toBundle()
+                val pendingIntent = findNavController()
+                    .createDeepLink()
+                    .setDestination(R.id.detailFragment)
+                    .setArguments(arg)
+                    .createPendingIntent()
+                Notifier.postNotification(poster, requireContext(), pendingIntent)
+            }
         }
     }
 }
