@@ -1,5 +1,5 @@
-import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
+import dependencies.Dependencies
 
 plugins {
     id("commons.android-library")
@@ -11,11 +11,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = BuildDependenciesVersions.COMPOSE
-    }
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
     }
 }
 
