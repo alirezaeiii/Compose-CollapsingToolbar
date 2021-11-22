@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import coil.annotation.ExperimentalCoilApi
 import com.android.sample.app.feature.list.R
 import com.android.sample.app.feature.list.ui.component.DetailView
-import com.android.sample.app.feature.list.ui.theme.ComposeTheme
+import com.android.sample.common.theme.ComposeTheme
 import com.android.sample.common.util.composeView
 
 @ExperimentalCoilApi

@@ -20,5 +20,6 @@ dependencies {
     api(Dependencies.TIMBER)
     implementation(Dependencies.COROUTINES)
     implementation(Dependencies.COMPOSE_UI)
+    implementation(Dependencies.COMPOSE_MATERIAL)
     kapt(AnnotationProcessorsDependencies.HILT)
 }

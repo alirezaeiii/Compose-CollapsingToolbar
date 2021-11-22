@@ -4,10 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -21,6 +18,7 @@ import com.android.sample.core.response.Poster
 @ExperimentalCoilApi
 @Composable
 fun DetailView(item: Poster, pressOnBack: () -> Unit, sendNotification: () -> Unit) {
+    val typography = MaterialTheme.typography
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
@@ -46,10 +44,12 @@ fun DetailView(item: Poster, pressOnBack: () -> Unit, sendNotification: () -> Un
 
         }
         Spacer(Modifier.height(8.dp))
-        Text(
-            modifier = Modifier.padding(8.dp),
-            text = item.description,
-            style = typography.body2
-        )
+        Surface {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = item.description,
+                style = typography.body2
+            )
+        }
     }
 }
