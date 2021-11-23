@@ -44,12 +44,11 @@ fun DetailView(item: Poster, pressOnBack: () -> Unit, sendNotification: () -> Un
 
         }
         Spacer(Modifier.height(8.dp))
-        Surface {
-            Text(
-                modifier = Modifier.padding(8.dp),
-                text = item.description,
-                style = typography.body2
-            )
-        }
+        Text(
+            modifier = Modifier.padding(8.dp),
+            text = item.description,
+            style = typography.body2,
+            color = MaterialTheme.colors.onSurface
+        )
     }
 }
