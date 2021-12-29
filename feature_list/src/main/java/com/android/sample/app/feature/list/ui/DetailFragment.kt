@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import coil.annotation.ExperimentalCoilApi
 import com.android.sample.app.feature.list.R
-import com.android.sample.app.feature.list.ui.component.DetailView
+import com.android.sample.app.feature.list.ui.component.DetailScreen
 import com.android.sample.common.theme.ComposeTheme
 import com.android.sample.common.util.composeView
 
-@ExperimentalCoilApi
 class DetailFragment : Fragment() {
 
     override fun onCreateView(
@@ -22,7 +20,7 @@ class DetailFragment : Fragment() {
     ): View = composeView {
         ComposeTheme {
             val poster = DetailFragmentArgs.fromBundle(requireArguments()).poster
-            DetailView(
+            DetailScreen(
                 poster,
                 findNavController()::navigateUp
             ) {

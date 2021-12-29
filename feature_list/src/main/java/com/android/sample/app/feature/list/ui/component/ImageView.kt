@@ -9,10 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
-import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 
-@ExperimentalCoilApi
 @Composable
 fun ImageView(url: String, height: Dp) {
     val imageModifier = Modifier
@@ -26,5 +24,4 @@ fun ImageView(url: String, height: Dp) {
         modifier = imageModifier,
         contentScale = ContentScale.Crop,
     )
-
 }

@@ -12,12 +12,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import coil.annotation.ExperimentalCoilApi
 import com.android.sample.core.response.Poster
 
-@ExperimentalCoilApi
 @Composable
-fun DetailView(item: Poster, pressOnBack: () -> Unit, sendNotification: () -> Unit) {
+fun DetailScreen(item: Poster, pressOnBack: () -> Unit, sendNotification: () -> Unit) {
     val typography = MaterialTheme.typography
     Column(
         modifier = Modifier
