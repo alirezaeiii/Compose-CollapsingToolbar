@@ -10,16 +10,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.android.sample.app.feature.list.ui.OnClickListener
 import com.android.sample.core.response.Poster
 
 @Composable
-fun VerticalListView(posters: List<Poster>, callback : OnClickListener) {
+fun VerticalListView(
+    posters: List<Poster>,
+    onPosterClick: (Poster) -> Unit
+) {
     LazyColumn {
         items(
             items = posters,
             itemContent = { item ->
-                VerticalListItem(item = item, callback)
+                VerticalListItem(item = item, onPosterClick = onPosterClick)
                 ListItemDivider()
             }
         )
@@ -27,13 +29,16 @@ fun VerticalListView(posters: List<Poster>, callback : OnClickListener) {
 }
 
 @Composable
-private fun VerticalListItem(item: Poster, callback: OnClickListener) {
+private fun VerticalListItem(
+    item: Poster,
+    onPosterClick: (Poster) -> Unit
+) {
     val typography = MaterialTheme.typography
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .clickable(onClick = { callback.onClick(item) })
+            .clickable(onClick = { onPosterClick(item) })
     ) {
         ImageView(url = item.poster, height = 150.dp)
         Spacer(Modifier.height(16.dp))

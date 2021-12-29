@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -20,8 +19,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.android.sample.app.feature.list.R
-import com.android.sample.app.feature.list.ui.component.ErrorScreen
-import com.android.sample.app.feature.list.ui.component.ProgressScreen
+import com.android.sample.app.feature.list.ui.common.ErrorScreen
+import com.android.sample.app.feature.list.ui.common.ProgressScreen
 import com.android.sample.app.feature.list.ui.component.VerticalListView
 import com.android.sample.common.theme.ComposeTheme
 import com.android.sample.common.util.ViewState
@@ -69,13 +68,13 @@ class MainFragment : Fragment() {
                             state = rememberSwipeRefreshState(isRefreshing = isRefreshing),
                             onRefresh = { viewModel.refresh() },
                         ) {
-                            VerticalListView(viewState.data, OnClickListener { poster ->
+                            VerticalListView(viewState.data) { poster ->
                                 val destination =
                                     MainFragmentDirections.actionMainFragmentToDetailFragment(
                                         poster
                                     )
                                 findNavController().navigate(destination)
-                            })
+                            }
                         }
                     }
                     is ViewState.Error ->
