@@ -63,7 +63,7 @@ class MainFragment : Fragment() {
                         }
                     },
                     elevation = 8.dp,
-                    modifier = Modifier.clip(RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp))
+                    modifier = Modifier.clip(RoundedCornerShape(bottomStart = 18.dp, bottomEnd = 18.dp))
                 )
             },
             content = {
