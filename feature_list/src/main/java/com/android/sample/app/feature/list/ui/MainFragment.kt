@@ -24,7 +24,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.sample.app.feature.list.R
 import com.android.sample.app.feature.list.ui.common.ErrorScreen
 import com.android.sample.app.feature.list.ui.common.ProgressScreen
-import com.android.sample.app.feature.list.ui.component.VerticalListView
+import com.android.sample.app.feature.list.ui.component.VerticalCollection
 import com.android.sample.common.theme.ComposeTheme
 import com.android.sample.common.util.ViewState
 import com.android.sample.common.util.composeView
@@ -75,7 +75,7 @@ class MainFragment : Fragment() {
                             state = rememberSwipeRefreshState(isRefreshing = isRefreshing),
                             onRefresh = { viewModel.refresh() },
                         ) {
-                            VerticalListView(viewState.data) { poster ->
+                            VerticalCollection(viewState.data) { poster ->
                                 val destination =
                                     MainFragmentDirections.actionMainFragmentToDetailFragment(
                                         poster

@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.android.sample.app.feature.list.ui.common.Image
 import com.android.sample.core.response.Poster
 
 @Composable
@@ -23,7 +24,7 @@ fun DetailScreen(item: Poster, pressOnBack: () -> Unit, sendNotification: () -> 
             .fillMaxHeight()
     ) {
         Box {
-            ImageView(url = item.poster, height = 420.dp)
+            Image(url = item.poster, height = 420.dp)
             Icon(
                 imageVector = Icons.Filled.ArrowBack,
                 tint = Color.White,

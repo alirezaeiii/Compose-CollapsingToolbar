@@ -10,10 +10,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.android.sample.app.feature.list.ui.common.Image
 import com.android.sample.core.response.Poster
 
 @Composable
-fun VerticalListView(
+fun VerticalCollection(
     posters: List<Poster>,
     onPosterClick: (Poster) -> Unit
 ) {
@@ -40,7 +41,7 @@ private fun VerticalListItem(
             .padding(16.dp)
             .clickable(onClick = { onPosterClick(item) })
     ) {
-        ImageView(url = item.poster, height = 150.dp)
+        Image(url = item.poster, height = 150.dp)
         Spacer(Modifier.height(16.dp))
         Text(
             text = item.name,

@@ -1,4 +1,4 @@
-package com.android.sample.app.feature.list.ui.component
+package com.android.sample.app.feature.list.ui.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.Dp
 import coil.compose.rememberImagePainter
 
 @Composable
-fun ImageView(url: String, height: Dp) {
+fun Image(url: String, height: Dp) {
     val imageModifier = Modifier
         .height(height)
         .fillMaxWidth()
