@@ -12,6 +12,7 @@
         android:theme="@style/Theme.Compose">
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTop"
             android:exported="true"
             android:theme="@style/Theme.Compose.NoActionBar">
             <intent-filter>
