@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.android.sample.app.feature.list.R
 import com.android.sample.app.feature.list.ui.component.DetailScreen
 import com.android.sample.common.theme.ComposeTheme
@@ -19,18 +20,17 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = composeView {
         ComposeTheme {
-            val poster = DetailFragmentArgs.fromBundle(requireArguments()).poster
+            val args: DetailFragmentArgs by navArgs()
             DetailScreen(
-                poster,
+                args.poster,
                 findNavController()::navigateUp
             ) {
-                val arg = DetailFragmentArgs(poster).toBundle()
                 val pendingIntent = findNavController()
                     .createDeepLink()
                     .setDestination(R.id.detailFragment)
-                    .setArguments(arg)
+                    .setArguments(args.toBundle())
                     .createPendingIntent()
-                Notifier.postNotification(poster, requireContext(), pendingIntent)
+                Notifier.postNotification(args.poster, requireContext(), pendingIntent)
             }
         }
     }
