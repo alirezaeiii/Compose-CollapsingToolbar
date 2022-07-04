@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.sample.app.feature.list.R
-import com.android.sample.app.feature.list.ui.component.DetailScreen
+import com.android.sample.app.feature.list.ui.detail.DetailsScreen
 import com.android.sample.common.theme.ComposeTheme
 import com.android.sample.common.util.composeView
 
@@ -21,7 +21,7 @@ class DetailFragment : Fragment() {
     ): View = composeView {
         ComposeTheme {
             val args: DetailFragmentArgs by navArgs()
-            DetailScreen(
+            DetailsScreen(
                 args.poster,
                 findNavController()::navigateUp
             ) {

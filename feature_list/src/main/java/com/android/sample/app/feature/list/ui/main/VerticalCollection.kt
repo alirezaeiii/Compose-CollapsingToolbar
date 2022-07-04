@@ -1,4 +1,4 @@
-package com.android.sample.app.feature.list.ui.component
+package com.android.sample.app.feature.list.ui.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

@@ -1,5 +1,6 @@
 package com.android.sample.app.feature.list.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +25,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.sample.app.feature.list.R
 import com.android.sample.app.feature.list.ui.common.ErrorScreen
 import com.android.sample.app.feature.list.ui.common.ProgressScreen
-import com.android.sample.app.feature.list.ui.component.VerticalCollection
+import com.android.sample.app.feature.list.ui.main.VerticalCollection
 import com.android.sample.common.theme.ComposeTheme
 import com.android.sample.common.util.ViewState
 import com.android.sample.common.util.composeView
@@ -49,6 +50,7 @@ class MainFragment : Fragment() {
         }
     }
 
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @Composable
     private fun Content(viewState: ViewState<List<Poster>>) {
         Scaffold(

@@ -3,7 +3,7 @@
  */
 object BuildDependenciesVersions {
     const val GRADLE_ANDROID = "7.0.3"
-    const val KOTLIN = "1.5.31"
+    const val KOTLIN = "1.6.21"
     const val NAVIGATION = "2.4.0-beta01"
     const val APPCOMPAT = "1.3.1"
     const val MATERIAL = "1.4.0"
@@ -17,7 +17,7 @@ object BuildDependenciesVersions {
     const val MOSHI = "1.12.0"
     const val COROUTINES = "1.5.2"
     const val COIL = "1.4.0"
-    const val COMPOSE = "1.0.4"
+    const val COMPOSE = "1.2.0-beta02"
     const val ACTIVITY_COMPOSE = "1.3.1"
     const val ACCOMPANIST = "0.20.0"
 
