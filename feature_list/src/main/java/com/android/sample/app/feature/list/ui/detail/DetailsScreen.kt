@@ -114,14 +114,10 @@ private fun DetailsContent(
 ) {
     val typography = MaterialTheme.typography
     Column(
-        modifier = Modifier
-            .fillMaxHeight()
-            .verticalScroll(scrollState)
+        modifier = Modifier.verticalScroll(scrollState)
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(boxHeight)
+            modifier = Modifier.height(boxHeight)
         ) {
             Image(
                 painter = rememberImagePainter(item.poster),

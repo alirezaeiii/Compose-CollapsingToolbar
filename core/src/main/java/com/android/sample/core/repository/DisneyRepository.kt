@@ -1,7 +1,7 @@
 package com.android.sample.core.repository
 
 import android.content.Context
-import com.android.sample.common.base.BaseListRepository
+import com.android.sample.common.base.BaseRepository
 import com.android.sample.core.database.DisneyDao
 import com.android.sample.core.database.asDomainModel
 import com.android.sample.core.di.IoDispatcher
@@ -18,10 +18,7 @@ class DisneyRepository @Inject constructor(
     private val api: DisneyService,
     context: Context,
     @IoDispatcher coroutinesDispatcher: CoroutineDispatcher
-) : BaseListRepository<Poster>(
-    context,
-    coroutinesDispatcher
-) {
+) : BaseRepository<Poster>(context, coroutinesDispatcher) {
 
     override suspend fun query(): List<Poster> = dao.getPosters().asDomainModel()
 

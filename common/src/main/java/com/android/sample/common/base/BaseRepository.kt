@@ -7,38 +7,45 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import timber.log.Timber
 
 abstract class BaseRepository<T>(
     context: Context,
     coroutinesDispatcher: CoroutineDispatcher
 ) {
-    protected abstract suspend fun query(): T
+    protected abstract suspend fun query(): List<T>
 
-    protected abstract suspend fun fetch(): T
+    protected abstract suspend fun fetch(): List<T>
 
-    protected abstract suspend fun saveFetchResult(items: T)
+    protected abstract suspend fun saveFetchResult(items: List<T>)
 
-    protected open fun isNotEmpty(t: T) = t != null
-
-    val result: Flow<ViewState<T>> = flow {
+    val result: Flow<ViewState<List<T>>> = flow {
         emit(ViewState.Loading)
-        query().let {
-            if (isNotEmpty(it)) {
-                // ****** STEP 1: VIEW CACHE ******
-                emit(ViewState.Success(it))
-            }
+        val cache = query()
+        if (cache.isNotEmpty()) {
+            // ****** STEP 1: VIEW CACHE ******
+            emit(ViewState.Success(cache))
             try {
                 // ****** STEP 2: MAKE NETWORK CALL, SAVE RESULT TO CACHE ******
-                saveFetchResult(fetch())
+                refresh()
                 // ****** STEP 3: VIEW CACHE ******
                 emit(ViewState.Success(query()))
             } catch (t: Throwable) {
-                if (isNotEmpty(it)) {
-                    return@flow
-                }
+                Timber.e(t)
+            }
+        } else {
+            try {
+                // ****** STEP 1: MAKE NETWORK CALL, SAVE RESULT TO CACHE ******
+                refresh()
+                // ****** STEP 2: VIEW CACHE ******
+                emit(ViewState.Success(query()))
+            } catch (t: Throwable) {
                 emit(ViewState.Error(context.getString(R.string.failed_refresh_msg)))
             }
-
         }
     }.flowOn(coroutinesDispatcher)
+
+    private suspend fun refresh() {
+        saveFetchResult(fetch())
+    }
 }
