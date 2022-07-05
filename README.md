@@ -1,6 +1,11 @@
 # Compose-Sample
 Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL.
 
+## Screenshots
+<p align="center">
+  <img src="https://github.com/alirezaeiii/Compose-MultiModule-Cache/blob/master/screenshots/screenshot1.gif" width="250" />
+</p>
+
 ## Features
 * Modular Android App Architecture.
 * MVVM Architecture + Repository design Pattern.
