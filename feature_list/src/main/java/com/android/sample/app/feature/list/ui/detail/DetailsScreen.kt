@@ -240,7 +240,8 @@ private fun HeaderActions(
         ) {
             Icon(
                 Icons.Filled.ArrowBack,
-                contentDescription = "back"
+                contentDescription = "back",
+                tint = MaterialTheme.colors.onSurface
             )
         }
     }
