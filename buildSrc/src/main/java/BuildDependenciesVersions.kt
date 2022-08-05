@@ -9,7 +9,7 @@ object BuildDependenciesVersions {
     const val MATERIAL = "1.4.0"
     const val LIFECYCLE = "2.4.0"
     const val CORE_KTX = "1.7.0"
-    const val ROOM = "2.3.0"
+    const val ROOM = "2.4.3"
     const val HILT = "2.40"
     const val TIMBER = "5.0.1"
     const val RETROFIT = "2.9.0"
