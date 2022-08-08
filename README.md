@@ -1,5 +1,5 @@
 # Compose-Sample
-Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL.
+Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL. This is a sample that showcases this issue : https://issuetracker.google.com/issues/238177355
 
 ## Screenshots
 <p align="center">
