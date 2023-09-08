@@ -2,7 +2,7 @@
  * Configuration version of all build dependencies
  */
 object BuildDependenciesVersions {
-    const val GRADLE_ANDROID = "7.0.3"
+    const val GRADLE_ANDROID = "7.2.1"
     const val KOTLIN = "1.6.21"
     const val NAVIGATION = "2.4.0-beta01"
     const val APPCOMPAT = "1.3.1"

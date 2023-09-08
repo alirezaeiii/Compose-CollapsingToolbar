@@ -36,7 +36,6 @@ fun DetailsScreen(
     pressOnBack: () -> Unit,
     sendNotification: () -> Unit
 ) {
-    // DetailsScreen owns the scrollerPosition to simulate CollapsingToolbarLayout's behavior
     val scrollState = rememberScrollState()
     var detailScroller by remember {
         mutableStateOf(DetailsScroller(scrollState, Float.MIN_VALUE))
@@ -89,9 +88,6 @@ fun DetailsScreen(
             boxHeight = with(LocalDensity.current) {
                 440.dp + toolbarOffsetHeightPx.value.toDp()
             },
-            imageHeight = with(LocalDensity.current) {
-                420.dp + toolbarOffsetHeightPx.value.toDp()
-            },
             sendNotification = sendNotification,
             contentAlpha = { contentAlpha.value }
         )
@@ -108,7 +104,6 @@ private fun DetailsContent(
     onNamePosition: (Float) -> Unit,
     item: Poster,
     boxHeight: Dp,
-    imageHeight: Dp,
     sendNotification: () -> Unit,
     contentAlpha: () -> Float,
 ) {
@@ -125,7 +120,6 @@ private fun DetailsContent(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
                     .fillMaxWidth()
-                    .height(imageHeight)
                     .clip(shape = MaterialTheme.shapes.medium)
                     .alpha(contentAlpha()),
                 contentScale = ContentScale.Crop,
@@ -136,12 +130,13 @@ private fun DetailsContent(
                 modifier = Modifier
                     .width(126.dp)
                     .align(Alignment.BottomCenter)
+                    .offset(y = 23.5.dp)
 
             ) {
                 Text(text = "DeepLink")
             }
         }
-        Spacer(Modifier.height(8.dp)
+        Spacer(Modifier.height(32.dp)
             .onGloballyPositioned { onNamePosition(it.positionInWindow().y) })
         Text(
             modifier = Modifier.padding(8.dp),
