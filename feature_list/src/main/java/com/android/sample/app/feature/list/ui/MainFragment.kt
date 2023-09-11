@@ -1,6 +1,5 @@
 package com.android.sample.app.feature.list.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,7 +49,6 @@ class MainFragment : Fragment() {
         }
     }
 
-    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     @Composable
     private fun Content(viewState: ViewState<List<Poster>>) {
         Scaffold(
