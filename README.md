@@ -1,6 +1,9 @@
 # Compose-Sample
 Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL. This is a sample that showcases this issue : https://issuetracker.google.com/issues/238177355
 
+## *Addenda*
+Issue is fixed now based on update in [sunflower](https://github.com/android/sunflower) sample app from Google. 
+
 ## Screenshots
 <p align="center">
   <img src="https://github.com/alirezaeiii/Compose-MultiModule-Cache/blob/master/screenshots/screenshot1.gif" width="250" />
