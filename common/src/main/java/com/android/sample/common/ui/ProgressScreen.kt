@@ -1,4 +1,4 @@
-package com.android.sample.app.feature.list.ui.common
+package com.android.sample.common.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

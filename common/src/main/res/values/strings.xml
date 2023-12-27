@@ -1,3 +1,4 @@
 <resources>
     <string name="failed_refresh_msg">Something went wrong</string>
+    <string name="retry">Retry</string>
 </resources>

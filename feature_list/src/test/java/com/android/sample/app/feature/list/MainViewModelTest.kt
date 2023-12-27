@@ -3,7 +3,7 @@ package com.android.sample.app.feature.list
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.android.sample.app.feature.list.ui.MainViewModel
-import com.android.sample.common.util.ViewState
+import com.android.sample.common.util.Resource
 import com.android.sample.core.database.DisneyDao
 import com.android.sample.core.network.DisneyService
 import com.android.sample.core.repository.DisneyRepository
@@ -54,9 +54,9 @@ class MainViewModelTest {
 
         testCoroutineRule.pauseDispatcher()
         val viewModel = MainViewModel(repository)
-        assertThat(viewModel.stateFlow.value, `is`(ViewState.Loading))
+        assertThat(viewModel.stateFlow.value, `is`(Resource.Loading))
         testCoroutineRule.resumeDispatcher()
-        assertThat(viewModel.stateFlow.value, `is`(ViewState.Success(emptyList())))
+        assertThat(viewModel.stateFlow.value, `is`(Resource.Success(emptyList())))
     }
 
     @Test
@@ -72,8 +72,8 @@ class MainViewModelTest {
 
         testCoroutineRule.pauseDispatcher()
         val viewModel = MainViewModel(repository)
-        assertThat(viewModel.stateFlow.value, `is`(ViewState.Loading))
+        assertThat(viewModel.stateFlow.value, `is`(Resource.Loading))
         testCoroutineRule.resumeDispatcher()
-        assertThat(viewModel.stateFlow.value, `is`(ViewState.Error(errorMsg)))
+        assertThat(viewModel.stateFlow.value, `is`(Resource.Error(errorMsg)))
     }
 }

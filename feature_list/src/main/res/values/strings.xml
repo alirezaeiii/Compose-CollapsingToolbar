@@ -1,6 +1,5 @@
 <resources>
     <string name="disney">Disney</string>
-    <string name="retry">Retry</string>
     <string name="defaultChannel">Disney default channel</string>
     <string name="notificationDescription">Notifications from Disney</string>
 </resources>

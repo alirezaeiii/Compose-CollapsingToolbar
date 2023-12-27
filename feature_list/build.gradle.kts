@@ -1,5 +1,5 @@
-import dependencies.Dependencies
 import dependencies.AnnotationProcessorsDependencies
+import dependencies.Dependencies
 import extensions.addTestsDependencies
 
 plugins {
@@ -30,7 +30,6 @@ dependencies {
     implementation(Dependencies.COMPOSE_MATERIAL)
     implementation(Dependencies.COMPOSE_PREVIEW)
     implementation(Dependencies.ACTIVITY_COMPOSE)
-    implementation(Dependencies.SWIPE_REFRESH)
     kapt(AnnotationProcessorsDependencies.HILT)
 
     addTestsDependencies()

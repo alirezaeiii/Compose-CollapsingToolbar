@@ -24,7 +24,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
@@ -86,7 +85,6 @@ fun DetailsScreen(
                 }
             },
             item = item,
-            boxHeight = Dimens.DetailBoxImageHeight,
             sendNotification = sendNotification,
             contentAlpha = { contentAlpha.value }
         )
@@ -102,7 +100,6 @@ private fun DetailsContent(
     scrollState: ScrollState,
     onNamePosition: (Float) -> Unit,
     item: Poster,
-    boxHeight: Dp,
     sendNotification: () -> Unit,
     contentAlpha: () -> Float,
 ) {
@@ -111,7 +108,7 @@ private fun DetailsContent(
         modifier = Modifier.verticalScroll(scrollState)
     ) {
         Box(
-            modifier = Modifier.height(boxHeight)
+            modifier = Modifier.height(Dimens.DetailBoxImageHeight)
         ) {
             Image(
                 painter = rememberImagePainter(item.poster),
