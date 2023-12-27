@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
+import com.android.sample.app.feature.list.ui.common.Dimens
 import com.android.sample.core.response.Poster
 
 @Composable
@@ -54,7 +55,7 @@ fun DetailsScreen(
     }
 
     val toolbarHeightPx = with(LocalDensity.current) {
-        278.dp.roundToPx().toFloat()
+        Dimens.DetailAppBarHeight.roundToPx().toFloat()
     }
     val toolbarOffsetHeightPx = remember { mutableStateOf(0f) }
     val nestedScrollConnection = remember {
@@ -85,9 +86,7 @@ fun DetailsScreen(
                 }
             },
             item = item,
-            boxHeight = with(LocalDensity.current) {
-                440.dp + toolbarOffsetHeightPx.value.toDp()
-            },
+            boxHeight = Dimens.DetailBoxImageHeight,
             sendNotification = sendNotification,
             contentAlpha = { contentAlpha.value }
         )
@@ -136,8 +135,10 @@ private fun DetailsContent(
                 Text(text = "DeepLink")
             }
         }
-        Spacer(Modifier.height(32.dp)
-            .onGloballyPositioned { onNamePosition(it.positionInWindow().y) })
+        Spacer(
+            Modifier
+                .height(32.dp)
+                .onGloballyPositioned { onNamePosition(it.positionInWindow().y) })
         Text(
             modifier = Modifier.padding(8.dp),
             text = item.description,
