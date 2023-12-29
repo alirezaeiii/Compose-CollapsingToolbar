@@ -1,8 +1,5 @@
 # Compose-Sample
-Modular Android architecture which showcase Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack compose, Retrofit, Unit test and Kotlin Gradle DSL. This is a sample that showcases this issue : https://issuetracker.google.com/issues/238177355
-
-## *Addenda*
-Issue is fixed now based on update in [sunflower](https://github.com/android/sunflower) sample app from Google. 
+Modular Android architecture using Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack Compose, Retrofit, Unit test and Kotlin Gradle DSL which which showcase Collapsing Toolbar in Jetpack Compose.
 
 ## Screenshots
 <p align="center">
