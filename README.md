@@ -1,5 +1,5 @@
 # Compose-CollapsingToolbar
-Modular Android architecture using Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack Compose, Retrofit, Unit test and Kotlin Gradle DSL which which showcase Collapsing Toolbar in Jetpack Compose.
+Modular Android architecture using Kotlin, MVVM, Navigation, Hilt, Coroutines, Jetpack Compose, Retrofit, Unit test and Kotlin Gradle DSL which showcase Collapsing Toolbar in Jetpack Compose.
 
 ## Screenshots
 <p align="center">
